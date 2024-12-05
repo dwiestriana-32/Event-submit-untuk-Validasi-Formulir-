@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+  </head>
+<body>
+  <form id="myForm">
+    <input type="text" id="nameField" placeholder="Enter your name">
+    <button type="submit">Submit</button>
+  </form>
+  <p id="errorMessage" style="color: red;"></p>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const nameField = document.getElementById('nameField');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function (event) {
+      if (nameField.value.trim() === '') {
+        errorMessage.textContent = 'Name field cannot be empty!';
+        event.preventDefault(); // Prevent form submission
+      } else {
+        errorMessage.textContent = '';
+        alert(`Form submitted with name: ${nameField.value}`);
+      }
+    });
+  </script>
+</body>
+</html>
